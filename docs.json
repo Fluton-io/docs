@@ -1,69 +1,47 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mint Starter Kit",
+  "theme": "linden",
+  "name": "Fluton",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#2B63D9",
+    "light": "#2B63D9",
+    "dark": "#2B63D9"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon-dark.png",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Documentation",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "👋 Welcome",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "pages/welcome/introduction",
+              "pages/welcome/confidential-architecture",
+              "pages/welcome/shielding",
+              "pages/welcome/payment",
+              "pages/welcome/flutonized-vaults",
+              "pages/welcome/testnet-guide"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Concepts",
+            "pages": ["pages/concepts/cERC20", "pages/concepts/encrypted-intents"]
+          },
+          {
+            "group": "Developer Documentation",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              {
+                "group": "Fluton SDK",
+                "expanded": false,
+                "pages": ["pages/developer-documentation/fluton-sdk/overview"]
+              },
+              "pages/developer-documentation/smart-contracts"
             ]
           },
           {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
+            "group": "Resources",
+            "pages": ["pages/resources/FAQ", "pages/resources/brandkit", "pages/resources/brand-guidelines"]
           }
         ]
       }
@@ -72,26 +50,27 @@
       "anchors": [
         {
           "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
+          "href": "https://docs.fluton.io",
           "icon": "book-open-cover"
         },
         {
           "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
+          "href": "https://fluton.io/blog",
           "icon": "newspaper"
         }
       ]
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/images/logo/light.svg",
+    "dark": "/images/logo/dark.svg"
   },
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "icon": "discord",
+        "label": "Discord",
+        "href": "https://discord.gg/fluton"
       }
     ],
     "primary": {
@@ -101,22 +80,13 @@
     }
   },
   "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+    "options": ["copy", "view", "chatgpt", "claude", "perplexity", "mcp", "cursor", "vscode"]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/FlutonIO",
+      "github": "https://github.com/Fluton-io",
+      "discord": "https://discord.gg/fluton"
     }
   }
 }
