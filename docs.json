@@ -78,7 +78,7 @@
       "anchors": [
         {
           "anchor": "Documentation",
-          "href": "https://docs.fluton.io",
+          "href": "/introduction",
           "icon": "book-open-cover"
         },
         {
