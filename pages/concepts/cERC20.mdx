@@ -1,5 +1,19 @@
 ---
 title: "cERC20"
+description: "How confidential ERC20s work"
 ---
 
-cERC20 Page
+Imagine a scenario where Fluton Labs would like to pay salaries on-chain for automation and provability purposes. They would like to pay \$5000 to Alice, \$6000 to Bob and \$7000 to Carol every month. If they use normal ERC20 USDC, anyone who knows how to read transactions can see the following actions:
+
+- Fluton Labs paid Alice $5000
+- Fluton Labs paid Bob $6000
+- Fluton Labs paid Carol $7000
+
+This causes:
+
+- Private information leakage (employees can see each others' salaries)
+- Wallet profiling (everyone can see employees' history)
+
+Confidential ERC20s solve this by using encrypted handles to keep the balances and values hidden from public view.
+
+Users can receive confidential ERC20s by wrapping (which is also called shielding) their tokens into cERC20s in 1:1 ratio. At this point, when they conduct a transaction using their shielded tokens, the transferred value is never shown publicly.

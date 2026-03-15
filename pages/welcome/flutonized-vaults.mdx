@@ -1,6 +1,27 @@
 ---
-title: "Flutonized Vaults"
+title: "🔒 Flutonized Vaults"
 description: "Confidential Vaults"
 ---
 
-Flutonized Vaults Page
+**Flutonized Vaults** execute yield strategies directly on encrypted state.
+Strategy logic, allocation decisions, and rebalancing conditions are evaluated without exposing user balances, positions, or intermediate execution data.
+
+Users can participate in yield strategies including deposits, rebalancing, and yield accrual while all strategy logic and position data remain confidential by default.
+
+Users express their desire to enter a vault through an **encrypted intent**.
+
+Unlike traditional vaults where deposits, withdrawals, and strategy changes are visible onchain, Flutonized Vaults prevent:
+
+- strategy copy-trading
+- position size leakage
+- wallet-level yield tracking
+- MEV extraction from rebalance events
+
+Instead of manually browsing vaults, comparing yields, or selecting strategies, users simply describe their intent in natural language such as:
+
+- “Find the best private USDC yield”
+- “Low-risk ETH yield with minimal rebalancing”
+- “Maximize stablecoin yield across chains”
+- “Conservative yield, no long lockups”
+
+We're working on an AI Agent, **Flu**, to parse the intents expressed in the natural language format into an executable format. Flu parses these requests into encrypted intents, queries available Flutonized Vaults, and evaluates yield opportunities across chains.

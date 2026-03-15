@@ -1,0 +1,47 @@
+---
+title: "Modules"
+description: "Modules for Fluton SDK"
+---
+
+### `fluton.supported`
+
+Discover what’s supported (networks/tokens/adapters).
+
+- `getSupportedChains(): Promise<SupportedChains>`
+- `getSupportedTokens(chain): Promise<Token[]>`
+- `getCapabilities(): Promise<Capabilities>` (confidential support per chain/token)
+
+### `fluton.bridge`
+
+Simple bridge workflows
+
+- `quote(params): Promise<BridgeQuote>`
+- `execute(quote, opts?): Promise<ExecutionResult>`
+- `track(intentId | txHash, cb?): Unsubscribe`
+
+### `fluton.intent`
+
+Low-level intent engine.
+
+- `create(params): Promise<IntentDraft>`
+- `sign(draft, signer?): Promise<SignedIntent>` (private key or browser wallet signing)
+- `submit(signed): Promise<{ intentId: string }>` (register intent into backend)
+- `get(intentId): Promise<Intent>`
+- `status(intentId): Promise<IntentStatus>`
+- `execute(intentId | SignedIntent, opts?): Promise<ExecutionResult>`
+
+### `fluton.offers`
+
+Offer discovery and selection
+
+- `list(intentId): Promise<Offer[]>`
+- `subscribe(intentId, onOffer, onError?): Unsubscribe` (WebSocket or SSE, both supported)
+- `selectBest(intentId, strategy?): Promise<Offer>`
+
+### `fluton.utils`
+
+Utility Methods.
+
+- `parseUnits(amount, decimals)`
+- `formatUnits(bigint, decimals)`
+- `toChainKey(chainId) / toChainId(key)`

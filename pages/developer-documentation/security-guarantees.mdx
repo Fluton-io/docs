@@ -1,0 +1,20 @@
+---
+title: "Security Guarantees"
+description: "What security guarantees does the protocol provide"
+---
+
+### Non-Custodial Execution
+
+User funds are never held by solvers or third parties. They remain locked within the protocol until execution is verified.
+
+### Solver Capital Protection
+
+Once funds are escrowed and a solver is selected, repayment capital is reserved and cannot be withdrawn or reassigned.
+
+### Replay Protection
+
+Each intent is uniquely identified and can only be settled once. This prevents double claims or repeated fulfillment proofs.
+
+### Deterministic Settlement
+
+The outcome of each intent is determined by on-chain state transitions rather than off-chain trust assumptions.

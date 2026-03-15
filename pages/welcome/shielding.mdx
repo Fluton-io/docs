@@ -1,6 +1,26 @@
 ---
-title: "Shielding"
+title: "🛡️ Shielding"
 description: "Making Tokens Confidential"
 ---
 
-Shielding Page
+Shielding is the process that moves assets out of this transparent environment and into Fluton’s private execution context. When a user shields assets, they are not hiding funds inside a pool or mixing with others. Instead, the assets are converted into an encrypted state that Fluton can execute on privately.
+
+## Shielding Lifecycle
+
+Shielding establishes the starting point for Fluton’s execution lifecycle:
+
+<Steps>
+  <Step title="Public Deposit">User deposits their desired assets</Step>
+  <Step title="Encrypted State">The assets get converted into an encrypted state</Step>
+  <Step title="Encrypted Transfer">The encrypted assets gets transferred into user's wallet</Step>
+</Steps>
+
+## Unshielding
+
+Unshielding is the reverse process.
+
+When users choose to exit confidential execution:
+
+- Encrypted balances are settled
+- Funds return to a public ERC-20 representation
+- Only required settlement data is revealed

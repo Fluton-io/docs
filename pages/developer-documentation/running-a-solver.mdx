@@ -1,0 +1,58 @@
+---
+title: "Running a Solver"
+description: "How to run a solver and contribute to the protocol (and earn rewards)"
+---
+
+### 1) Clone the Repository
+
+```bash
+git clone https://github.com/fluton-io/fluton-relayer.git
+cd fluton-relayer
+```
+
+### 2) Install Dependencies
+
+```bash
+yarn install
+```
+
+### 3) Configure environment variables
+
+Copy the example env file and fill in your values:
+
+```bash
+cp .env.example .env
+```
+
+| Variable                   | Required | Description                                           |
+| -------------------------- | -------- | ----------------------------------------------------- |
+| `PRIVATE_KEY`              | Yes      | Relayer wallet private key (`0x`-prefixed)            |
+| `BACKEND_URL`              | Yes      | Fluton backend URL for Socket.IO                      |
+| `PORT`                     | No       | Server port (default: `3001`)                         |
+| `INFURA_API_KEY`           | Yes      | Infura API key for RPC endpoints                      |
+| `ONEINCH_API_KEY`          | No       | 1inch API key (needed for 1inch aggregator)           |
+| `ODOS_API_URL`             | No       | Odos API base URL (default: `https://api.odos.xyz`)   |
+| `ONEINCH_API_URL`          | No       | 1inch API base URL (default: `https://api.1inch.dev`) |
+| `SEPOLIA_RPC_URL`          | Yes\*    | Sepolia HTTP RPC URL                                  |
+| `SEPOLIA_WS_URL`           | Yes\*    | Sepolia WebSocket URL                                 |
+| `ARBITRUM_SEPOLIA_RPC_URL` | Yes\*    | Arbitrum Sepolia HTTP RPC URL                         |
+| `ARBITRUM_SEPOLIA_WS_URL`  | Yes\*    | Arbitrum Sepolia WebSocket URL                        |
+| `BASE_SEPOLIA_RPC_URL`     | Yes\*    | Base Sepolia HTTP RPC URL                             |
+| `BASE_SEPOLIA_WS_URL`      | Yes\*    | Base Sepolia WebSocket URL                            |
+
+\* Required for the chains you intend to relay on.
+
+### 4) Configure fees
+
+A fee schema (`src/config/feeSchema.json`) defines base fees, percentage fees, and decimals per chain/token pair. Generate or update it interactively:
+
+```bash
+yarn generate-fee-schema
+```
+
+### 5) Start the relayer
+
+```bash
+docker build -t fluton-relayer .
+docker run -p 3001:3001 fluton-relayer
+```

@@ -1,0 +1,50 @@
+---
+title: "Usage"
+description: "How to use Fluton SDK"
+---
+
+### Create Client
+
+```js
+import { FlutonClient } from "@fluton/sdk";
+
+const fluton = new FlutonClient({
+  chains: {
+    ethereum: { chainId: 1, rpcUrl: "…" },
+    arbitrum: { chainId: 42161, rpcUrl: "…" },
+  },
+  signer: /* optional */,
+});
+```
+
+Signer is optional for server-side quoting/intent creation. Required for `execute()`.
+
+### Request a Quote
+
+```js
+const quote = await fluton.bridge.quote({
+  fromChain: "ethereum",
+  toChain: "arbirum",
+  token: "USDC",
+  amount: "100",
+});
+```
+
+### Execute Quote & Track Status
+
+```js
+const res = await fluton.bridge.execute(quote);
+fluton.bridge.track(res.intentId, (s) => console.log(s.status));
+```
+
+### Custom Intents
+
+```js
+const draft = await fluton.intent.create({ ... });
+const signed = await fluton.intent.sign(draft);
+const { intentId } = await fluton.intent.submit(signed);
+
+const offer = await fluton.offers.selectBest(intentId);
+
+await fluton.intent.execute(intentId, offer);
+```

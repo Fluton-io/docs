@@ -1,0 +1,12 @@
+---
+title: "Confidentiality Adapter"
+description: "How the Confidentiality Adapter works"
+---
+
+The Confidentiality Adapter is a smart contract which works as a middleware between the user and the protocol, so if the user wants to interact with the protocol confidentially, they will have to interact with the confidentiality adapter contract instead of the protocol’s contracts. The best part of confidentiality adapter is, since it’s just a middleware contract, the protocol’s infrastructure code doesn’t have to be updated or changed at all. It's basically a wrapper around the protocol's contracts.
+
+## How It Works
+
+When a user submits a transaction to the confidentiality adapter, they submit their request, and the confidentiality adapter then waits for other requests. When the request count reaches to a threshold, the adapter unwraps the tokens and submits the requested actions as a batch. Since the existing protocols do not support cERC20 tokens, the confidentiality adapter has to unwrap the confidential tokens back to their standart form.
+
+Each projects has to create their own confidentiality adapter contract suitable to their needs. There is no global confidentiality adapter which makes every app confidential.

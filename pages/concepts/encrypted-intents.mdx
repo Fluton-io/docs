@@ -2,4 +2,59 @@
 title: "Encrypted Intents"
 ---
 
-Encrypted Intents Page
+**Encrypted Intents are the primary interaction model in Fluton.**
+
+They define _what outcome a user wants_ without exposing _how that outcome is executed_.
+
+Instead of submitting a traditional transaction that reveals parameters such as amounts, routes, slippage, or strategy logic, users submit an **encrypted intent** that remains confidential throughout its entire lifecycle.
+
+## What Is an Intent?
+
+An intent is a declarative instruction that answers:
+
+> _“What should happen?”_
+
+not
+
+> _“How should this transaction be executed?”_
+
+For example:
+
+- “Swap USDC to ETH at the best private rate”
+- “Bridge assets to the destination chain with minimal slippage”
+- “Deposit funds into the highest private yield strategy”
+- “Pay a recipient privately”
+
+## How Encrypted Intents Work
+
+In Fluton, intents are encrypted at creation and remain encrypted throughout execution.
+
+The intent payload is encrypted using Fluton’s cryptographic stack (FHE), which ensures that:
+
+- No relayer, solver, or validator can see the plaintext intent
+- Execution logic operates directly on encrypted data
+
+### Intent Lifecycle
+
+Every encrypted intent follows the same lifecycle:
+
+<Steps>
+  <Step title="Intent Creation">User defines an intent and encrypts it.</Step>
+  <Step title="Encrypted Intent Submission">The intent gets submitted on-chain.</Step>
+  <Step title="Confidential Routing">The intent is routed to the necessary router.</Step>
+  <Step title="Confidential Execution">The intent is fulfilled.</Step>
+  <Step title="Private Settlement">The intent is settled. Privacy is obtained from start to end.</Step>
+</Steps>
+
+During this lifecycle, the status of the intent can be one of the following at a time:
+
+- `CREATED` (registered)
+- `OFFERED` (>=1 offer available)
+- `SUBMITTED` (confirmed onchain)
+- `FULFILLING` (solver executing on destination)
+- `FULFILLED` (user received output on destination)
+- `SETTLING` (repayment in progress)
+- `SETTLED` (registered)
+- `EXPIRED` (no offers given)
+- `TIMED_OUT` (relayer didn't fulfill)
+- `FAILED` (with reason)

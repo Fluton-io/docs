@@ -1,0 +1,28 @@
+---
+title: "5-Minute Integration"
+description: "How easy it is integrate Fluton SDK in 5 minutes"
+---
+
+```js
+import { FlutonClient } from "@fluton/sdk";
+
+const fluton = new FlutonClient({
+  chains: {
+    ethereum: { chainId: 1, rpcUrl: "…" },
+    arbitrum: { chainId: 42161, rpcUrl: "…" },
+  },
+  signer: ethersOrViemSigner,
+});
+
+const quote = await fluton.bridge.quote({
+  fromChain: "ethereum",
+  toChain: "arbitrum",
+  token: "USDC",
+  amount: "100",
+});
+
+const res = await fluton.bridge.execute(quote);
+
+// for tracking
+fluton.bridge.track(res.intentId, (s) => console.log(s.status));
+```

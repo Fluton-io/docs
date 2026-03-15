@@ -1,6 +1,52 @@
 ---
-title: "Payment"
+title: "💵 Payment"
 description: "Confidential Payments"
 ---
 
-Payment Page
+Payments in Fluton are private by default.
+
+On-chain public payments expose the sender, receiver, amount, and timing of every transfer. Even when addresses are pseudonymous, payment flows can be traced, clustered, and analyzed.
+
+Payments are expressed as encrypted intents and executed entirely on encrypted state, ensuring that value can move without revealing who paid whom, how much was transferred, or how the transaction was routed.
+
+## What Remains Private
+
+In a private payment:
+
+- Sender identity is not revealed publicly
+- Recipient identity is concealed from third parties
+- Transfer amount remains confidential
+- Timing and sequencing are obscured
+- Routing paths across chains are not exposed
+
+These protections persist until an authorized disclosure explicitly reveals specific details.
+
+| Property           | Public Payment | Fluton Private Payment |
+| ------------------ | -------------- | ---------------------- |
+| Sender identity    | Fully visible  | Confidential           |
+| Recipient identity | Public         | Confidential           |
+| Amount             | Public         | Confidential           |
+| Timing             | Transparent    | Obfuscated             |
+| Routing data       | Observable     | Encrypted              |
+
+## When Privacy Matters
+
+### Everyday Payments
+
+Routine personal transfers such as giving money to a friend or family member can reveal behavioral patterns if done on public chains.
+
+### Merchant and Travel Payments
+
+Paying a hotel, rental service, or other merchant publicly can disclose travel dates, location, and spending behavior.
+
+### Payroll and Contractors
+
+Public payroll exposes salaries and employment relationships. With Fluton, payroll and contractor payments execute privately, while auditors or accounting systems can access limited disclosures only when required.
+
+### B2B Settlements
+
+Business payments often reveal pricing, volumes, and supplier relationships. Fluton enables confidential B2B settlements with optional reporting and compliance controls.
+
+### Compliance & Proof of Payment
+
+When verification is needed for tax, audit, or regulatory purposes, Fluton supports selective disclosure revealing only specific payment details to authorized parties without making them public onchain.

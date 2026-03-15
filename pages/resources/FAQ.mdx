@@ -1,0 +1,39 @@
+---
+title: "FAQ"
+description: "Frequently Asked Questions about Fluton"
+---
+
+<AccordionGroup>
+<Accordion title="What is Fluton?">
+Fluton is the universal confidential execution layer for the digital economy. It enables applications, agents, and users to execute private actions across chains including swaps, bridging, payments, and yield without migrating to a new blockchain and exposing balances, strategies, or intent.
+</Accordion>
+<Accordion title="What problem does Fluton solve?">
+Blockchains are transparent by default. This transparency creates major issues such as trading strategies getting copied, transactions being frontrunned, MEV attacks, wallet balance and history are publicly visible and so on. Fluton solves these problems by adopting the ERC7984 standart to allow encrypted token transfers and shielded balancees.
+</Accordion>
+<Accordion title="How does Fluton work?">
+Fluton replaces traditional transactions with an intent based model. Users sign an encrypted intent expressed with a natural language, and a decentralized network of solvers fulfill it. Thanks to the technological advancements on FHE, the solvers can fullfill it without needing to decrypt the intent. Once completed, settlement occurs trustlessly.
+</Accordion>
+<Accordion title="Why do we need confidentiality?">
+Transparency in DeFi exposes trading strategies which leads to sandwich attacks and MEV exploits on transactions. It also makes portfolio balances shown publicly, which is a huge issue for instutional liquidity flow on-chain. Confidentiality is the real solution for the mentioned problems.
+</Accordion>
+<Accordion title="How does Fluton provide confidentiality?">
+Fluton uses Fully Homomorphic Encryption (FHE) and encrypted intents. FHE allows computations to be performed directly on encrypted data, meaning transaction details can remain hidden, strategies remain private and user balances are not exposed.
+</Accordion>
+<Accordion title="What is an intent?">
+An intent is a type of order where a user specifies an outcome instead of an execution path. In practice, intents manifest as a combination of a crosschain limit order and an action to execute, all encoded within a standardized order structure. Relayers compete on cost and speed to fill these orders, which can include onchain actions as well as assets. Relayers deliver very quickly, without any messages.
+</Accordion>
+<Accordion title="What is FHE?">
+FHE stands for Fully Homomorphic Encryption, which allows computations to be performed directly on encrypted data without decrypting it. This means sensitive information such as balances, transaction amounts, or trading strategies can remain encrypted while still being processed by the network.
+</Accordion>
+<Accordion title="Isn't FHE too slow/expensive/impractical?">
+Yes, today, FHE is expensive. But so was TLS in the 90s. Did people stop using TLS? No, they optimized and turned it into a viable protocol. We believe in FHE's vision and we'll see more companies adopt FHE in the future.
+
+We also do not encrypt everything using FHE, we introduce selective disclosure so you're free to hide the details you want.
+
+</Accordion>
+<Accordion title="Which wallet should I use for Fluton?">
+You can use any wallet you’d like! Fluton is completely wallet-agnostic, meaning you don’t need a wallet with specific features. It can be Metamask, Rabby, Phantom or anything else, really.
+</Accordion>
+</AccordionGroup>
+
+If you have a question which is not listed here, do not hesitate to contact us at team@fluton.io!

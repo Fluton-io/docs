@@ -1,6 +1,52 @@
 ---
-title: "Confidential Architecture"
+title: "🏗️ Confidential Architecture"
 description: "Confidential Execution Layer"
 ---
 
-Confidential Architecture Page
+Blockchains are transparent by default. While this transparency enables verification and trustless execution, it creates structural issues for real-world applications. Trading strategies become visible, balances can be linked and analyzed, transactions are exposed to front-running, and cross-chain activity often leaks user intent.
+
+These issues makes blockchains fundamentally different from traditional financial systems where privacy and atomic execution are standard expectations.
+
+Fluton addresses this problem by introducing confidential intent-based execution. We adopt the ERC7984 (Confidential Fungible Token) standart to allow encrypted token transfers and shielded balances.
+
+<Note>
+  Learn more about ERC7984 from [OpenZeppelin's
+  documentation!](https://docs.openzeppelin.com/confidential-contracts/token)
+</Note>
+
+Instead of manually executing transactions, users express an intent describing what they want to achieve. A network of solvers fulfills that intent, while ERC7984 and encrypted execution with FHE protect sensitive information such as amounts and strategies.
+
+This matters because the next generation of blockchain applications; including trading, payments, and automated finance cannot operate efficiently in a system where every action is public.
+
+## What is FHE?
+
+Fully Homomorphic Encryption (FHE) allows computation to be performed directly on encrypted data. This means data can stay encrypted while logic is applied to it, and only the final result needs to be decrypted by authorized parties.
+
+In practice, this enables:
+
+- Inputs to remain private during execution
+- Logic to run without revealing intermediate values
+- Results to be verified without exposing sensitive data
+
+FHE makes it possible to separate execution correctness from data visibility, which is critical for privacy in decentralized systems.
+
+## Execution Model
+
+Fluton uses FHE to make execution itself confidential rather than exposing intent and logic on public infrastructure.
+Actions are expressed as encrypted intents, which define what should happen without revealing strategy, size, routing preferences, or conditions.
+
+Privacy is enforced across the full lifecycle of an action: <br />
+intent submission > routing > execution > settlement
+
+Confidential execution is not mixing.
+
+| Feature             | Mixers         | Confidential Execution |
+| ------------------- | -------------- | ---------------------- |
+| Privacy Scope       | Transfers only | Arbitrary logic        |
+| DeFi Access         | Limited        | Native                 |
+| Cross-Chain         | No             | Yes                    |
+| Agent Compatibility | No             | Yes                    |
+
+## Application-Level Privacy
+
+Fluton is designed for application-level privacy rather than chain-level anonymity, with privacy enforced at every stage of an action instead of being added later. From intent submission to routing, execution, and final settlement, user inputs are encrypted from the moment an intent is created, execution runs directly on encrypted data, and results are revealed only to authorized parties.

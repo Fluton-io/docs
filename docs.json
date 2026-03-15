@@ -26,17 +26,45 @@
           },
           {
             "group": "Concepts",
-            "pages": ["pages/concepts/cERC20", "pages/concepts/encrypted-intents"]
+            "pages": [
+              "pages/concepts/cERC20",
+              "pages/concepts/encrypted-intents",
+              "pages/concepts/confidentiality-router",
+              "pages/concepts/confidentiality-adapter",
+              {
+                "group": "CEL (Confidential Execution Layer)",
+                "pages": [
+                  "pages/concepts/cel/what-is-cel",
+                  "pages/concepts/cel/intent-plane",
+                  "pages/concepts/cel/routing-plane",
+                  "pages/concepts/cel/adapter-plane",
+                  "pages/concepts/cel/protocol-plane"
+                ]
+              },
+              "pages/concepts/proof-of-innocence",
+              "pages/concepts/the-entry-leak-problem",
+              "pages/concepts/solver-cooperation",
+              "pages/concepts/hooks"
+            ]
           },
           {
             "group": "Developer Documentation",
             "pages": [
               {
                 "group": "Fluton SDK",
-                "expanded": false,
-                "pages": ["pages/developer-documentation/fluton-sdk/overview"]
+                "pages": [
+                  "pages/developer-documentation/fluton-sdk/overview",
+                  "pages/developer-documentation/fluton-sdk/5-minute-integration",
+                  "pages/developer-documentation/fluton-sdk/usage",
+                  "pages/developer-documentation/fluton-sdk/types",
+                  "pages/developer-documentation/fluton-sdk/modules",
+                  "pages/developer-documentation/fluton-sdk/react-sdk"
+                ]
               },
-              "pages/developer-documentation/smart-contracts"
+              "pages/developer-documentation/smart-contracts",
+              "pages/developer-documentation/running-a-solver",
+              "pages/developer-documentation/security-guarantees",
+              "pages/developer-documentation/supported-networks-addresses"
             ]
           },
           {
@@ -57,6 +85,11 @@
           "anchor": "Blog",
           "href": "https://fluton.io/blog",
           "icon": "newspaper"
+        },
+        {
+          "anchor": "Website",
+          "href": "https://fluton.io",
+          "icon": "globe"
         }
       ]
     }
@@ -75,8 +108,8 @@
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Website",
+      "href": "https://fluton.io"
     }
   },
   "contextual": {

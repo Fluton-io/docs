@@ -1,0 +1,71 @@
+---
+title: "Types"
+description: "Types for Fluton SDK"
+---
+
+### Chains & Tokens
+
+```js
+type ChainKey = "ethereum" | "arbitrum" | string;
+
+type Token = {
+  symbol: string;        // "USDC"
+  address: `0x${string}`; // on that chain
+  decimals: number;
+  name?: string;
+};
+
+type SupportedChains = Record<ChainKey, {
+  chainId: number;
+  rpcUrl?: string;
+  nativeSymbol: string; // "ETH"
+}>;
+```
+
+### Intent Params
+
+```js
+type IntentCreateParams = {
+  fromChain: ChainKey;
+  toChain: ChainKey;
+
+  inputToken: Token | string; // only token symbol is also enough
+  outputToken: Token | string;
+  inputAmount: string; // human string e.g. "100.1"
+
+  receiver?: `0x${string}`; // default signer address
+  slippageBps?: number;     // default 30 (0.30%)
+  deadlineSecs?: number;    // default 300
+
+  confidential?: boolean;   // v1 preview
+
+  actions?: Action[];       // v1 limited hooks
+};
+
+type Action =
+  {
+      type: "contractCall";
+      chain: ChainKey;              // usually toChain
+      contract: `0x${string}`;
+      abiFragment: string;          // minimal ABI string for the method
+      method: string;
+      args: unknown[];
+      value?: string;               // optional native value
+  } | {
+      type: "noop";                 // placeholder for future
+  };
+```
+
+### Offer
+
+```js
+type Offer = {
+  id: string;
+  relayer: `0x${string}`;
+  outputAmount: string;     // human string in output token units
+  feeAmount?: string;
+  etaSeconds?: number;
+  expiresAt: string;        // ISO
+  signature: `0x${string}`
+};
+```

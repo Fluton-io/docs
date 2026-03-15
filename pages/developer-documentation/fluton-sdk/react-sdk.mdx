@@ -1,0 +1,32 @@
+---
+title: "React SDK"
+description: "React SDK for Fluton"
+---
+
+### Provider
+
+```js
+<FlutonProvider client={fluton}>
+  <App />
+</FlutonProvider>
+```
+
+### Hooks (v1)
+
+- `useSupportedChains()`
+- `useSupportedTokens(chain)`
+- `useBridgeQuote(params, { enabled })`
+- `useExecuteBridge() : returns execute(quote) + transaction state`
+- `useIntentStatus(intentId) (polling/stream)`
+- `useOffers(intentId) (stream)`
+
+Hook return shapes follow TanStack Query style:
+
+```js
+{
+  data: T;
+  error: Error | null;
+  isLoading: boolean;
+  refetch: () => void;
+}
+```

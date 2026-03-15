@@ -2,3 +2,58 @@
 title: "Smart Contracts"
 description: "Explanations for Smart Contracts of the protocol"
 ---
+
+Our smart contracts utilize Zama and Fhenix's coprocessors to perform FHE operations on encrypted data. On each chain supported by Fluton, there is a corresponding Bridge and IntentPool contract. While bridging logic could technically be embedded into the IntentPool contract, bridging represents one of the most common and performance-critical intent types. For this reason, we separated it into a dedicated Bridge contract to reduce gas costs, simplify execution paths, and allow more targeted optimization.
+
+## Bridge Contract
+
+The bridge contract is used for submitting bridging intents. The contract accepts both encrypted and non-encrypted intents. The main entrypoint of this contract is the `bridge` function.
+
+### Bridge Function (Public)
+
+```solidity
+function bridge(
+  address sender,
+  address receiver,
+  address relayer,
+  address inputToken,
+  address outputToken,
+  uint256 inputAmount,
+  uint256 outputAmount,
+  uint32 destinationChainId
+) external payable
+```
+
+- `sender`
+  - The original owner of the input funds. This address authorizes locking of tokens into escrow.
+- `receiver`
+  - The address that will receive assets on the destination chain once the solver executes the intent.
+- `relayer`
+  - The solver selected by the user. Only this address will be eligible to claim repayment after fulfillment.
+- `inputToken`
+  - The token being locked on the source chain.
+- `outputToken`
+  - The token expected on the destination chain.
+- `inputAmount`
+  - The quantity of tokens transferred into escrow.
+- `outputAmount`
+  - The amount the solver has committed to deliver on the destination chain.
+- `destinationChainId`
+  - The identifier of the chain where execution will occur.
+
+### Bridge Function (Private)
+
+```solidity
+function bridge(
+  address sender,
+  address receiver,
+  address relayer,
+  address inputToken,
+  eaddress outputToken,
+  euint256 inputAmount,
+  euint256 outputAmount,
+  euint32 destinationChainId
+) external payable
+```
+
+The private version of the `bridge` function differs from the public variant by supporting encrypted data types. These types do not store plaintext values directly on-chain. Rather, they act as references (handles) to encrypted data that is maintained and processed through a fully homomorphic encryption (FHE) system.
