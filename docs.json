@@ -7,6 +7,9 @@
     "light": "#2B63D9",
     "dark": "#2B63D9"
   },
+  "fonts": {
+    "family": "Nunito"
+  },
   "favicon": "/favicon-dark.png",
   "navigation": {
     "tabs": [
@@ -113,7 +116,16 @@
     }
   },
   "contextual": {
-    "options": ["copy", "view", "chatgpt", "claude", "perplexity", "mcp", "cursor", "vscode"]
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {
