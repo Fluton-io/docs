@@ -16,35 +16,35 @@
           {
             "group": "👋 Welcome",
             "pages": [
-              "pages/welcome/introduction",
-              "pages/welcome/confidential-architecture",
-              "pages/welcome/shielding",
-              "pages/welcome/payment",
-              "pages/welcome/flutonized-vaults",
-              "pages/welcome/testnet-guide"
+              "introduction",
+              "confidential-architecture",
+              "shielding",
+              "payment",
+              "flutonized-vaults",
+              "testnet-guide"
             ]
           },
           {
             "group": "Concepts",
             "pages": [
-              "pages/concepts/cERC20",
-              "pages/concepts/encrypted-intents",
-              "pages/concepts/confidentiality-router",
-              "pages/concepts/confidentiality-adapter",
+              "cERC20",
+              "encrypted-intents",
+              "confidentiality-router",
+              "confidentiality-adapter",
               {
                 "group": "CEL (Confidential Execution Layer)",
                 "pages": [
-                  "pages/concepts/cel/what-is-cel",
-                  "pages/concepts/cel/intent-plane",
-                  "pages/concepts/cel/routing-plane",
-                  "pages/concepts/cel/adapter-plane",
-                  "pages/concepts/cel/protocol-plane"
+                  "cel/what-is-cel",
+                  "cel/intent-plane",
+                  "cel/routing-plane",
+                  "cel/adapter-plane",
+                  "cel/protocol-plane"
                 ]
               },
-              "pages/concepts/proof-of-innocence",
-              "pages/concepts/the-entry-leak-problem",
-              "pages/concepts/solver-cooperation",
-              "pages/concepts/hooks"
+              "proof-of-innocence",
+              "the-entry-leak-problem",
+              "solver-cooperation",
+              "hooks"
             ]
           },
           {
@@ -53,23 +53,23 @@
               {
                 "group": "Fluton SDK",
                 "pages": [
-                  "pages/developer-documentation/fluton-sdk/overview",
-                  "pages/developer-documentation/fluton-sdk/5-minute-integration",
-                  "pages/developer-documentation/fluton-sdk/usage",
-                  "pages/developer-documentation/fluton-sdk/types",
-                  "pages/developer-documentation/fluton-sdk/modules",
-                  "pages/developer-documentation/fluton-sdk/react-sdk"
+                  "fluton-sdk/overview",
+                  "fluton-sdk/5-minute-integration",
+                  "fluton-sdk/usage",
+                  "fluton-sdk/types",
+                  "fluton-sdk/modules",
+                  "fluton-sdk/react-sdk"
                 ]
               },
-              "pages/developer-documentation/smart-contracts",
-              "pages/developer-documentation/running-a-solver",
-              "pages/developer-documentation/security-guarantees",
-              "pages/developer-documentation/supported-networks-addresses"
+              "smart-contracts",
+              "running-a-solver",
+              "security-guarantees",
+              "supported-networks-addresses"
             ]
           },
           {
             "group": "Resources",
-            "pages": ["pages/resources/FAQ", "pages/resources/brandkit", "pages/resources/brand-guidelines"]
+            "pages": ["FAQ", "brandkit", "brand-guidelines"]
           }
         ]
       }
